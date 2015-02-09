@@ -13,17 +13,94 @@
 -----------------------------
 ###物件 (不熟)
 1. 參考會被四處傳遞，物件不會被複製。
-2. 
+2. 擷取物件的方法
+3. typeof / hasOwnProperty
 
 ```javascript
 //1.參考會被四處傳遞，物件不會被複製。
 var a = {}, b = {}, c = {};     // a, b, c 屬於不同物件
 var d = e = f = {};             // d, e, f 指向相同物件
 
-//2.
+//2.擷取物件的方法
+var stooge = {
+firstName:"Joe",
+firstName:"Howard"
+};
+stooge["firstName"];    //Joe
+stooge.firstName;       //Joe
 
+//3.typeof / hasOwnProperty
+typeof stooge.firstName;                //string
+stooge.hasOwnProperty('firstName');     //true ( 物件擁有指定特性時會回傳true )
 ```
 ---------------------------------
 ###函式
 1. 函式都是物件
-2. 
+2. 函式實字的建立
+3. 呼叫模式又可以分為下面四種 ( method / function / constructor / call & apply )
+4. try catch ( 處理例外狀況，主要是用來偵錯用的 )
+```
+// 俗稱匿名函式 (不利於 debug)
+var func = function () { 
+  //執行
+}
+// 命名為 nameFunc 的函式
+var func_named = function nameFunc() { 
+  //執行
+}
+//呼叫模式
+// 1. method invocation
+var obj = {
+  add: function(a, b) {
+    return (a+b);
+  }
+}
+obj.add(1,2);
+// 2. function invocation
+function add(a, b) {
+  return (a + b);
+}
+add(1,2);
+// 3. constructor invocation
+var Add = function(a, b) {
+  return (a+b);
+}
+var add = new Add(a, b);
+// 4. call & apply invocation
+/*
+  fun.call(thisArg[, arg1[, arg2[, ...]]])
+  fun.apply(thisArg, [argsArray])
+*/
+var obj = {
+  print: function(arg1, arg2) {
+    console.log(this.a);
+    console.log(this.b);
+    console.log(arg1);
+    console.log(arg2);
+  }
+};
+obj.call({a: 1, b: 1});
+  /*
+    1
+    1
+    undefined
+    undefined
+  */
+obj.apply({a: 3, b:4}, ["arg1", "arg2"]);
+  /*
+    3
+    4
+    arg1
+    arg2
+  */
+  
+  //try catch ( 處理例外狀況，主要是用來偵錯用的 )
+  try{
+... 要判斷的程式碼放這裡 ...
+}catch( err ){
+... 若 try 的時候有拋出錯誤訊息，則執行這裡的程式碼 ...
+}
+```
+
+------------------------------------------
+
