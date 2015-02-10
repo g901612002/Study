@@ -39,16 +39,20 @@ stooge.hasOwnProperty('firstName');     //true ( 物件擁有指定特性時會�
 2. 函式實字的建立
 3. 呼叫模式又可以分為下面四種 ( method / function / constructor / call & apply )
 4. try catch ( 處理例外狀況，主要是用來偵錯用的 )
-```
+```javascript
+
 // 俗稱匿名函式 (不利於 debug)
 var func = function () { 
   //執行
 }
+
 // 命名為 nameFunc 的函式
 var func_named = function nameFunc() { 
   //執行
 }
+
 //呼叫模式
+
 // 1. method invocation
 var obj = {
   add: function(a, b) {
@@ -56,16 +60,19 @@ var obj = {
   }
 }
 obj.add(1,2);
+
 // 2. function invocation
 function add(a, b) {
   return (a + b);
 }
 add(1,2);
+
 // 3. constructor invocation
 var Add = function(a, b) {
   return (a+b);
 }
 var add = new Add(a, b);
+
 // 4. call & apply invocation
 /*
   fun.call(thisArg[, arg1[, arg2[, ...]]])
@@ -112,31 +119,39 @@ obj.apply({a: 3, b:4}, ["arg1", "arg2"]);
 6. splice() : 矩陣.splice(起點,刪除幾個元素,加入的元素1,.....,加入的元素x)
 7. reverse()： 反轉
 8. 遍歷方式 ( forLoop / forEach / some )
-```
+```javascript
 //建立矩陣
 var num = ["zero","one","two"];
 var num = new Array("zero","one","two");
+
 //新增值
 num.unshift("stop");            //新增在第一個，num變成["stop","zero","one","two"]
 num.push("go");                 //新增在最後一個，num變成["stop","zero","one","two","go"]
+
 //刪除值
 delete num[2];                  //num變成["zero","one",undefined,"go"]
 num.splice(2,1);                //num變成["zero","one","go"]
 num.shift();                    //刪除第一個值
 num.pop();                      //刪除最後一個值
+
 //轉換成字串符號分隔的字串
 num.join(',');                  //"zero","one","go"
+
 //連接多個矩陣
 var a = [5,2,8];
 var b = [9,10,11];
 var n = a.concat(b);                    //[5,2,8,9,10,11]
+
 //slice
 var copyArr = a.slice(1,a.length);      //[2,8]
+
 //splice
+
 //(1)情況一：將2移除並在5跟8之間插入3、4的值
 var a = [5,2,8] 
 a.splice(1,1,3,4);
 console.log(a);                         //[5,3,4,8]
+
 //(2)情況二：第一個位置起全部刪除 
 var a = [5,2,8]
 a.splice(1);
@@ -144,12 +159,15 @@ console.log(a);                         //[5]
 //reverse
 var a = [5,2,8]
 console.log(a.reverse());               //8,2,5
+
 //遍歷方式
+
 //(1)forLoop：這種方式是屬於較具效率的方式，但當內容越多，可讀性就較差，最大的優點就是可以使用break、continue等來中斷。
 var a = [5,2,8];
 for (var i = 0;i < a.length;i++){
      console.log(a[i]);
 }
+
 //(2)forEach：需要一個callback function,在遍歷每個元素的時候都會調用一次這個function，該function提供三個參數如下： 
           ●value：元素值
           ●index：元素索引
@@ -160,6 +178,7 @@ a.forEach(function(value,index,array){
       console.log(index);
       console.log(array[index]);
 })
+
 //(3)
 ```
 -------------------------------------
