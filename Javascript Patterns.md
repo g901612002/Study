@@ -343,7 +343,7 @@ console.log(toy.name);          //undefined (name 是 private)
 console.log(toy.getName());     //'ipaod'
 ```
 ###程式碼重用模式 (p.119)
-```javascript
+[程式碼重用模式](code_reuse_patterns.md)
 
 ```
 ###設計模式(p.145)
