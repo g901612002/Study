@@ -347,6 +347,7 @@ console.log(toy.getName());     //'ipaod'
 
 ###設計模式(p.145)
 - [Singleton 單體模式](singleton.md)
+- [Factory 工廠模式](factory.md) 
 
 ```
 ###DOM 和瀏覽器的模式
