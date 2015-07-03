@@ -345,9 +345,9 @@ console.log(toy.getName());     //'ipaod'
 ###程式碼重用模式 (p.119)
 [程式碼重用模式](code_reuse_patterns.md)
 
-```
 ###設計模式(p.145)
-```javascript
+- [Singleton 單體模式](singleton.md)
+- [Factory 工廠模式](factory.md) 
 
 ```
 ###DOM 和瀏覽器的模式
